@@ -10,17 +10,45 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Tarefas'),
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('Flutter: Iniciando'),
+        body: Container(
+          child: Stack(
+            children: [
+              Container(
+                color: Colors.blue,
+                height: 140,
+              ),
+              Container(
+                color: Colors.white,
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      color: Colors.black26,
+                      height: 72,
+                      width: 100,
+                    ),
+                    Text('Aprender Flutter'),
+                    ElevatedButton(
+                        onPressed: () {}, child: Icon(Icons.arrow_drop_up))
+                  ],
+                ),
+              ),
+            ],
           ),
-          body: Container(),
-          floatingActionButton: FloatingActionButton(onPressed: (){},),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+        ),
+      ),
     );
   }
 }
