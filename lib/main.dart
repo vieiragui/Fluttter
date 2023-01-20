@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          leading: Container(),
           title: Text('Tarefas'),
         ),
         body: ListView(
@@ -47,7 +48,6 @@ class _TaskState extends State<Task> {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -71,23 +71,40 @@ class _TaskState extends State<Task> {
                         width: 100,
                       ),
                       Container(
-                          width: 200,
-                          child: Text(
-                            widget.nome,
-                            style: TextStyle(
-                              fontSize: 24,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              nivel++;
-                            });
+                        width: 200,
+                        child: Text(
+                          widget.nome,
+                          style: TextStyle(
+                            fontSize: 24,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 52,
+                        width: 52,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                nivel++;
+                              });
 
-                            print(nivel);
-                          },
-                          child: Icon(Icons.arrow_drop_up))
+                              print(nivel);
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Icon(Icons.arrow_drop_up),
+                                Text(
+                                  'UP',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                )
+                              ],
+                            )),
+                      )
                     ],
                   ),
                 ),
@@ -98,9 +115,7 @@ class _TaskState extends State<Task> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         child: LinearProgressIndicator(
-                          color: Colors.white,
-                          value: nivel/10
-                        ),
+                            color: Colors.white, value: nivel / 10),
                         width: 200,
                       ),
                     ),
